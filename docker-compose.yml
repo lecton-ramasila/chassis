@@ -8,13 +8,12 @@ services:
     networks:
       - monitoring
 
-  grafana-agent:
-    image: grafana/agent:latest
+  prometheus:
+    image: prom/prometheus:latest
     ports:
       - "9090:9090"
     volumes:
-      - ./agent-config.yml:/etc/agent/agent.yml
-    command: ["-config.file=/etc/agent/agent.yml"]
+      - ./prometheus-local.yml:/etc/prometheus/prometheus.yml
     networks:
       - monitoring
 
