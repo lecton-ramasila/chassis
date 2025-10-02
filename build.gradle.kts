@@ -24,9 +24,6 @@ dependencies {
     // Prometheus metrics
     implementation("io.micrometer:micrometer-registry-prometheus")
     
-    // WebFlux for reverse proxy
-    implementation("org.springframework.boot:spring-boot-starter-webflux")
-    
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation(kotlin("test"))
 }
