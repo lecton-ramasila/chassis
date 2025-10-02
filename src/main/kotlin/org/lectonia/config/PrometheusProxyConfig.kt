@@ -34,6 +34,7 @@ class PrometheusProxyConfig {
                 }
                 .retrieve()
                 .bodyToMono(String::class.java)
+                .onErrorReturn("<h1>Prometheus not available</h1><p>Prometheus service is not running. Use Docker Compose locally or check <a href='/actuator/prometheus'>raw metrics</a></p>")
                 .flatMap { body ->
                     ServerResponse.ok()
                         .header("Content-Type", "text/html")
